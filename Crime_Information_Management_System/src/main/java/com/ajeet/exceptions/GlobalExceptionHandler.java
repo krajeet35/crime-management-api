@@ -18,6 +18,21 @@ public class GlobalExceptionHandler {
 		ErrorDetails err= new ErrorDetails(LocalDateTime.now(), e.getMessage(), req.getDescription(false));
 		return new ResponseEntity<ErrorDetails>(err,HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler(AdminException.class)
+	public ResponseEntity<ErrorDetails> adminException(AdminException e, WebRequest req){
+		ErrorDetails err= new ErrorDetails(LocalDateTime.now(), e.getMessage(), req.getDescription(false));
+		return new ResponseEntity<ErrorDetails>(err,HttpStatus.NOT_FOUND);
+	}
+	@ExceptionHandler(CrimeException.class)
+	public ResponseEntity<ErrorDetails> crimeException(CrimeException e, WebRequest req){
+		ErrorDetails err= new ErrorDetails(LocalDateTime.now(), e.getMessage(), req.getDescription(false));
+		return new ResponseEntity<ErrorDetails>(err,HttpStatus.NOT_FOUND);
+	}
+	@ExceptionHandler(CriminalException.class)
+	public ResponseEntity<ErrorDetails> criminalException(CriminalException e, WebRequest req){
+		ErrorDetails err= new ErrorDetails(LocalDateTime.now(), e.getMessage(), req.getDescription(false));
+		return new ResponseEntity<ErrorDetails>(err,HttpStatus.NOT_FOUND);
+	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ErrorDetails> methodArgNotValidException(MethodArgumentNotValidException e){
